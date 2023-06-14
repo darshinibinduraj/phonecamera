@@ -41,11 +41,24 @@
                     <a href="#" id="take-photo" title="Take Photo"><i class="material-icons">camera_alt</i></a>
                     <a href="#" id="download-photo" download="selfie.png" target="_blank" title="Save Photo" class="d-none"><i class="material-icons">file_download</i></a>
                     <a href="#" id="resume-camera"  title="Resume Camera" class="d-none"><i class="material-icons">camera_front</i></a>
+
+					<a href="" id="upload-photo" target="_blank" title="Upload Photo" class="d-none" onclick="handleAuthClick(false)"><i class="material-icons">file_upload</i></a>
+                    <a href="" id="sync-result" target="_blank" title="Sync Result" onclick="handleAuthClick(true)" class="d-none"><i class="material-icons">sync</i></a>
+					<a href="" id="refresh" target="_blank" title="refresh" class="d-none" onclick="handleAuthClick(false)"><i class="material-icons">refresh</i></a>
+					<a href="#" id="close" title="Close App" class="d-none"><i class="material-icons">close</i></a>
+
                 </div>
+				<img src="" id="image-container"/>
+				<div id="content" class="success message"><?php if(isset($message)) { echo $message; } ?></div>
             </div>
         </div>
         <div class="md-overlay"></div>
     </main>
     <script src='./js/app.js'></script>
+    <script type="text/javascript" src="./js/gapi-upload.js"></script>
+    <script async defer src="https://apis.google.com/js/api.js"
+        onload="gapiLoaded()"></script>
+    <script async defer src="https://accounts.google.com/gsi/client"
+        onload="gisLoaded()"></script>
 </body>
 </html>
