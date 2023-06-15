@@ -10,25 +10,26 @@ const webcam = new Webcam(webcamElement, 'user', canvasElement, snapSoundElement
 $("#webcam-switch").change(function () {
     if(this.checked){
         $('.md-modal').addClass('md-show');
-        webcam.start()
-            .then(result =>{
-               cameraStarted();
-               console.log("webcam started");
-            })
-            .catch(err => {
-                displayError();
-            });
+            cameraStarted();
     }
     else {
         cameraStopped();
-        webcam.stop();
-        console.log("webcam stopped");
     }
 });
 
 $('#cameraFlip').click(function() {
     webcam.flip();
     webcam.start();
+});
+
+$('#camera_switchon').click(function() {
+    webcam.start();
+    webcamStart();
+});
+
+$('#camera_switchoff').click(function() {
+    webcam.stop();
+    webcamStop()
 });
 
 $('#closeError').click(function() {
@@ -45,7 +46,7 @@ function displayError(err = ''){
 function cameraStarted(){
     $("#errorMsg").addClass("d-none");
     $('.flash').hide();
-    $("#webcam-caption").html("on");
+    $("#webcam-caption").html("Stop");
     $("#webcam-control").removeClass("webcam-off");
     $("#webcam-control").addClass("webcam-on");
     $(".webcam-container").removeClass("d-none");
@@ -55,6 +56,7 @@ function cameraStarted(){
     $("#wpfront-scroll-top-container").addClass("d-none");
     window.scrollTo(0, 0);
     $('body').css('overflow-y','hidden');
+    webcamStop();
 }
 
 function cameraStopped(){
@@ -64,8 +66,26 @@ function cameraStopped(){
     $("#webcam-control").addClass("webcam-off");
     $("#cameraFlip").addClass('d-none');
     $(".webcam-container").addClass("d-none");
-    $("#webcam-caption").html("Click to Start Camera");
+    $("#webcam-caption").html("Start");
     $('.md-modal').removeClass('md-show');
+
+	$("#take-photo").addClass("d-none");
+	$("#camera_switchon").addClass("d-none");
+	$("#camera_switchoff").addClass("d-none");
+}
+
+function webcamStart() {
+	$("#take-photo").removeClass("d-none");
+	$("#camera_switchon").addClass("d-none");
+	$("#camera_switchoff").removeClass("d-none");
+	$("#upload-image").addClass("d-none");
+}
+
+function webcamStop() {
+	$("#take-photo").addClass("d-none");
+	$("#camera_switchon").removeClass("d-none");
+	$("#upload-image").removeClass("d-none");
+	$("#camera_switchoff").addClass("d-none");
 }
 
 
@@ -87,6 +107,21 @@ function beforeTakePhoto(){
     $('#cameraControls').addClass('d-none');
 }
 
+function loadFile(event) {
+	    var output = document.getElementById('image-container-preview');
+
+	    var download = document.getElementById('download-photo');
+
+	    output.src = URL.createObjectURL(event.target.files[0]);
+	    output.onload = function() {
+	    URL.revokeObjectURL(output.src) // free memory
+    	}
+
+    	download.src = URL.createObjectURL(event.target.files[0]);
+    	afterTakePhoto();
+    	chooseFile();
+}
+
 function afterTakePhoto(){
     webcam.stop();
     $('#canvas').removeClass('d-none');
@@ -100,6 +135,17 @@ function afterTakePhoto(){
     $('#sync-result').removeClass('d-none');
     $('#refresh').removeClass('d-none');
     $('#close').removeClass('d-none');
+    $('#webcam-control').addClass('d-none');
+	  $("#camera_switchoff").addClass("d-none");
+	  $("#camera_switchon").addClass("d-none");
+}
+
+function chooseFile() {
+	  $('#canvas').addClass('d-none');
+	  $('#image-container-preview').removeClass('d-none');
+	  $('#webcam-control').addClass('d-none');
+	  $("#camera_switchoff").addClass("d-none");
+	  $("#camera_switchon").addClass("d-none");
 }
 
 function removeCapture(){
@@ -115,6 +161,9 @@ function removeCapture(){
     $('#sync-result').addClass('d-none');
     $('#refresh').addClass('d-none');
     $('#close').addClass('d-none');
+    $('#image-container-preview').addClass('d-none');
+    $("#camera_switchon").addClass("d-none");
+    $("#camera_switchoff").removeClass("d-none");
 }
 
 $("#resume-camera").click(function () {
@@ -128,3 +177,5 @@ $("#exit-app").click(function () {
     removeCapture();
     $("#webcam-switch").prop("checked", false).change();
 });
+
+

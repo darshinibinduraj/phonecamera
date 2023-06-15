@@ -34,7 +34,7 @@
     color: white;
     text-shadow: 1px 1px #000;
     font-size: 1.2rem;
-    width: 230px;
+    width: 156px;
     height: 55px;
     z-index: 9999;
     top: -15%;
@@ -44,13 +44,12 @@
 }
 
 .form-control.webcam-on {
-  position: fixed;
-  top: 10vh;
-  bottom: auto;
+  position: relative;
+  top: -15%;
   left: 0px;
   right: auto;
   transition: all 100ms;
-  width: 145px!important;
+  
 }
 .form-control.webcam-off {
     transition: all 100ms;
@@ -300,15 +299,29 @@
   margin-right: auto;
 }
 
+#image-container-preview{
+  background-color: transparent;
+  position: absolute;
+  width: 100%;
+  height: 30%;
+  z-index: 9999;
+  margin: auto;
+  top: 0%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 @media screen and (max-width: 420px) {
   .form-control.webcam-start{
-    width: 300px;
+    width: 156px;
   }
 }
 
 @media screen and (max-width: 767px) {
   .cameraControls {
-    bottom: 12vh;
+    bottom: 20vh;
   }
 }
 

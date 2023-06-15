@@ -66,15 +66,12 @@ function handleAuthClick(syncResult) {
 		}
 		//document.getElementById('signout_button').style.visibility = 'visible';
 		//document.getElementById('authorize_button').value = 'Refresh';
-		if (syncResult == "base64")
+		if (!syncResult)
 		{
 			handleUpload();
-		}else if (syncResult == "open")
+		}else
 		{
 			openImage();
-		}else if (syncResult == "fileupload"){
-			
-			handleFileUpload();
 		}
 	};
 
@@ -103,22 +100,22 @@ function handleSignoutClick() {
 	}
 }
 
-async function handleFileUpload()
-{
-    await handleDeleteFilesClick();
-    var fileInput = document.getElementById('file-input')
-    var file = fileInput.files[0];
-     await uploadFile(file);
-     setTimeout(openImage, 10000);
-}
 
 async function handleUpload()
 {
     await handleDeleteFilesClick();
-    //var fileInput = document.getElementById('file-input')
-    //var file = fileInput.files[0];
-     await uploadFileBase64();
-     setTimeout(openImage, 10000);
+	// Get the element
+	const element = document.getElementById('image-container-preview');
+
+	// Check if the element contains a class
+	if (!element.classList.contains('d-none')) {
+    	 var fileInput = document.getElementById('upload-image')
+    	 var file = fileInput.files[0];
+	     uploadFile(file);
+	} else {
+    	await uploadFileBase64();
+	}
+
 }
 
 
@@ -239,6 +236,10 @@ async function uploadFile(file) {
 	xhr.onload = () => {
 		document.getElementById('content').innerHTML = "File uploaded successfully. The Google Drive file id is <b>" + xhr.response.id + "</b>";
 		document.getElementById('content').style.display = 'block';
+		$('#image-container').addClass('d-none');
+		$('#co2score').addClass('d-none');
+		setTimeout(openImage, 10000);
+
 	};
 	xhr.send(form);
 }
@@ -312,21 +313,6 @@ function checkDownload(timeout,callBack) {
 		  	   imageContainer.src = imageUrl;
 		  	   $('#image-container').removeClass('d-none');
 			   $('#co2score').removeClass('d-none');
-
-					// Create a FileReader instance
-					const reader = new FileReader();
-
-					// Set the onload event handler
-					reader.onload = function(event) {
-					  // Retrieve the base64 encoded string
-					  const base64String = event.target.result;
-
-					  // Use the base64 string as needed
-					  console.log(base64String);
-					};
-
-					// Read the file as a Data URL
-					reader.readAsDataURL(file);
 		   } else
 		   {
 				getFileContent(fileId, function(content) {
