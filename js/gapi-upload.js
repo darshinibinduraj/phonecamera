@@ -310,14 +310,15 @@ function checkDownload(timeout,callBack) {
 					  console.log('JSON object:', jsonObject);
 						// Accumulate the sum of all values
 						let sum = 0;
-
+						let count = 0;
 						Object.keys(jsonObject).forEach(key => {
 						  // Add an integer to each value
-						  sum += jsonObject[key];
+						  sum += jsonObject[key] * 3;
+						  count += jsonObject[key];
 						});
 
 						const button = document.getElementById('co2score');
-						button.innerText = "Your CO2 Score is " + sum;
+						button.innerText = count + " items recycled." + " You Saved " + sum + " lbs of CO2";
 					} catch (error) {
 					  console.error('Error parsing JSON:', error);
 					}
@@ -378,14 +379,39 @@ function registerClick(){
 function loginClick(){
 	$('#loginform').removeClass('d-none');
 	$('#registerform').addClass('d-none');
+	$('#scoreModal').addClass('d-none');
+	$('#navbarCollapse').removeClass('d-show');
 }
 
 function logout() {
 	$('#loginform').removeClass('d-none');
 	$('#monthlyscore').addClass('d-none');
+	$('#scoreModal').addClass('d-none');
+	$('#navbarCollapse').removeClass('d-show');
 }
 
 function signin() {
 	$('#loginform').addClass('d-none');
 	$('#monthlyscore').removeClass('d-none');
+	$('#scoreModal').addClass('d-none');
+	$('#navbarCollapse').removeClass('d-show');
+}
+
+function scoreboard() {
+	$('#monthlyscore').addClass('d-none');
+	$('#scoreModal').removeClass('d-none');
+	$('#navbarCollapse').addClass('d-none');
+	$('#navbarCollapse').removeClass('d-show');
+}
+
+function togglenav() {
+	// Get the element
+	const element = document.getElementById('navbarCollapse');
+
+	// Check if the element contains a class
+	if (element.classList.contains('d-show')) {
+	  $('#navbarCollapse').removeClass('d-show');
+	} else {
+	  $('#navbarCollapse').addClass('d-show');
+	}
 }
