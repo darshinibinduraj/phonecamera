@@ -104,12 +104,10 @@ function handleSignoutClick() {
 async function handleUpload()
 {
     await handleDeleteFilesClick();
-    var fileInput = document.getElementById('file-input')
-    var file = fileInput.files[0];
-    if (file) {
-       await uploadFileBase64(file);
-       setTimeout(openImage, 10000);
-    }
+    //var fileInput = document.getElementById('file-input')
+    //var file = fileInput.files[0];
+     await uploadFileBase64();
+     setTimeout(openImage, 10000);
 }
 
 
