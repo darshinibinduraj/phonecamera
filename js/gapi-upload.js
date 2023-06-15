@@ -298,7 +298,8 @@ function checkDownload(timeout,callBack) {
 		   if (extension.toUpperCase() != "JSON")
 		   {
 		  	   var webViewLink = file.webViewLink;
-		  	   var imageUrl = webViewLink.replace(/\/file\/d\/(.*)\/view.*/, '/uc?id=$1');
+		  	   //var imageUrl = webViewLink.replace(/\/file\/d\/(.*)\/view.*/, '/uc?id=$1');
+		  	   var imageUrl = "https://drive.google.com/uc?export=view&id="+fileId;
 		  	   imageContainer.src = imageUrl;
 		  	   $('#image-container').removeClass('d-none');
 			   $('#co2score').removeClass('d-none');
