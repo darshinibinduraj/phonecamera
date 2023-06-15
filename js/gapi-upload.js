@@ -310,7 +310,8 @@ function checkDownload(timeout,callBack) {
 		  	   var webViewLink = file.webViewLink;
 		  	   //var imageUrl = webViewLink.replace(/\/file\/d\/(.*)\/view.*/, '/uc?id=$1');
 		  	   var imageUrl = "https://drive.google.com/uc?export=view&id="+fileId;
-		  	   imageContainer.src = imageUrl;
+		  	   //imageContainer.src = imageUrl;
+		  	   convertImageToBase64(fileId);
 		  	   $('#image-container').removeClass('d-none');
 			   $('#co2score').removeClass('d-none');
 		   } else
@@ -425,4 +426,20 @@ function togglenav() {
 	} else {
 	  $('#navbarCollapse').addClass('d-show');
 	}
+}
+
+function convertImageToBase64(fileId) {
+  // Set up the Google Drive API client
+// Set up the Google Drive API client
+  gapi.client.load('drive', 'v3', function() {
+    // Retrieve the image file
+    gapi.client.drive.files.get({
+      fileId: fileId,
+      alt: 'media'
+    }).then(function(response) {
+      var base64Data = btoa(response.body);
+      var imageContainer = document.getElementById('image-container');
+      imageContainer.src = 'data:image/jpeg;base64,' + base64Data;
+    });
+  });
 }
