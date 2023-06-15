@@ -33,22 +33,23 @@
                 <div id="webcam-container" class="webcam-container col-12 d-none p-0 m-0">
                     <video id="webcam" autoplay playsinline width="640" height="480"></video>
                     <canvas id="canvas" class="d-none"></canvas>
+					<img src="" id="image-container" class="d-none"/>
                     <div class="flash"></div>
                     <audio id="snapSound" src="audio/snap.wav" preload = "auto"></audio>
                 </div>
                 <div id="cameraControls" class="cameraControls">
-                    <a href="#" id="exit-app" title="Exit App" class="d-none"><i class="material-icons">exit_to_app</i></a>
+                	<div><button id="co2score" class="btn btn-success d-none">Your CO2 Score is 2450</button></div>
                     <a href="#" id="take-photo" title="Take Photo"><i class="material-icons">camera_alt</i></a>
-                    <a href="#" id="download-photo" download="selfie.png" target="_blank" title="Save Photo" class="d-none"><i class="material-icons">file_download</i></a>
                     <a href="#" id="resume-camera"  title="Resume Camera" class="d-none"><i class="material-icons">camera_front</i></a>
-
 					<a href="" id="upload-photo" target="_blank" title="Upload Photo" class="d-none" onclick="handleAuthClick(false)"><i class="material-icons">file_upload</i></a>
+
                     <a href="" id="sync-result" target="_blank" title="Sync Result" onclick="handleAuthClick(true)" class="d-none"><i class="material-icons">sync</i></a>
 					<a href="" id="refresh" target="_blank" title="refresh" class="d-none" onclick="handleAuthClick(false)"><i class="material-icons">refresh</i></a>
-					<a href="#" id="close" title="Close App" class="d-none"><i class="material-icons">close</i></a>
+                    <a href="#" id="download-photo" download="selfie.png" target="_blank" title="Save Photo" class="d-none"><i class="material-icons">file_download</i></a>
+					<a href="" id="close" title="Close App" class="d-none"><i class="material-icons">close</i></a>
+                    <a href="#" id="exit-app" title="Exit App" class="d-none"><i class="material-icons">power_settings_new</i></a>
 
                 </div>
-				<img src="" id="image-container"/>
 				<div id="content" class="success message"><?php if(isset($message)) { echo $message; } ?></div>
             </div>
         </div>

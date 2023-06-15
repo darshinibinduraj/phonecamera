@@ -173,7 +173,8 @@ async function uploadFileBase64() {
 
           document.getElementById('content').innerHTML = "File uploaded successfully. The Google Drive file id is <b>" + xhr.response.id + "</b>";
 		  document.getElementById('content').style.display = 'block';
-
+			$('#image-container').addClass('d-none');
+			$('#co2score').addClass('d-none');
 			setTimeout(openImage, 10000);
           //var exit_app = document.getElementById('exit-app');
           //exit_app.click();
@@ -298,33 +299,25 @@ function checkDownload(timeout,callBack) {
 		   {
 		  	   var webViewLink = file.webViewLink;
 		  	   var imageUrl = webViewLink.replace(/\/file\/d\/(.*)\/view.*/, '/uc?id=$1');
-		  	   //imageContainer.src = imageUrl;
-		  	   const canvas = document.getElementById('canvas');
-  			   const context = canvas.getContext('2d');
-
-
-				// Create a new image element
-				const image = new Image();
-				// Set the source of the image
-				image.src = imageUrl;
-
-			  //canvas.width = image.width;
-			  //canvas.height = image.height;
-
- 				// Clear the canvas
-  				//context.clearRect(0, 0, canvas.width, canvas.height);
-
-  				//context.scale(-1, 1);
-  				context.drawImage(image, 0, 0);
-
-				$('#exampleModal').show();
-
+		  	   imageContainer.src = imageUrl;
+		  	   $('#image-container').removeClass('d-none');
+			   $('#co2score').removeClass('d-none');
 		   } else
 		   {
 				getFileContent(fileId, function(content) {
 				try {
 					  var jsonObject = JSON.parse(content);
 					  console.log('JSON object:', jsonObject);
+						// Accumulate the sum of all values
+						let sum = 0;
+
+						Object.keys(jsonObject).forEach(key => {
+						  // Add an integer to each value
+						  sum += jsonObject[key];
+						});
+
+						const button = document.getElementById('co2score');
+						button.innerText = "Your CO2 Score is " + sum;
 					} catch (error) {
 					  console.error('Error parsing JSON:', error);
 					}
