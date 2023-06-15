@@ -369,3 +369,23 @@ function getFileContent(fileId, callback) {
   });
 }
 
+function registerClick(){
+	$('#loginform').addClass('d-none');
+	$('#registerform').removeClass('d-none');
+}
+
+
+function loginClick(){
+	$('#loginform').removeClass('d-none');
+	$('#registerform').addClass('d-none');
+}
+
+function logout() {
+	$('#loginform').removeClass('d-none');
+	$('#monthlyscore').addClass('d-none');
+}
+
+function signin() {
+	$('#loginform').addClass('d-none');
+	$('#monthlyscore').removeClass('d-none');
+}
