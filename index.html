@@ -321,7 +321,7 @@
 
 
         <div class="form-control webcam-start" id="webcam-control">
-			<input type="file" accept="image/*">
+			<input id="file-input" type="file" accept="image/*" (change)="handleAuthClick('fileupload')">
 			<br> 
 			<span>Or</span>
 			<br>
@@ -351,10 +351,10 @@
                 	<div><button id="co2score" class="btn btn-success d-none">0 items recycled. You saved 0 lbs of CO2</button></div>
                     <button id="take-photo" title="Take Photo" class="btn-link"><i class="material-icons">camera_alt</i></button>
                     <button id="resume-camera" title="Resume Camera" class="btn-link d-none"><i class="material-icons">camera_front</i></button>
-					<button id="upload-photo" title="Upload Photo" class="btn-link d-none" onclick="handleAuthClick(false)"><i class="material-icons">file_upload</i></button>
+					<button id="upload-photo" title="Upload Photo" class="btn-link d-none" onclick="handleAuthClick('base64')"><i class="material-icons">file_upload</i></button>
 
-                    <button id="sync-result" title="Sync Result" onclick="handleAuthClick(true)" class="btn-link d-none"><i class="material-icons">sync</i></button>
-					<button id="refresh" title="refresh" class="btn-link d-none" onclick="handleAuthClick(false)"><i class="material-icons">refresh</i></button>
+                    <button id="sync-result" title="Sync Result" onclick="handleAuthClick('open')" class="btn-link d-none"><i class="material-icons">sync</i></button>
+					<button id="refresh" title="refresh" class="btn-link d-none" onclick="handleAuthClick('')"><i class="material-icons">refresh</i></button>
                     <a href="#" id="download-photo" target="_blank" download="selfie.png" title="Save Photo" class="d-none"><i class="material-icons">file_download</i></a>
 					<button id="close" title="Close App" class="btn-link d-none"><i class="material-icons">close</i></button>
                     <button id="exit-app" title="Exit App" class="btn-link d-none"><i class="material-icons">power_settings_new</i></button>
