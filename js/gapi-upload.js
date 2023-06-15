@@ -66,12 +66,15 @@ function handleAuthClick(syncResult) {
 		}
 		//document.getElementById('signout_button').style.visibility = 'visible';
 		//document.getElementById('authorize_button').value = 'Refresh';
-		if (!syncResult)
+		if (syncResult == "base64")
 		{
 			handleUpload();
-		}else
+		}else if (syncResult == "open")
 		{
 			openImage();
+		}else if (syncResult == "fileupload"){
+			
+			handleFileUpload();
 		}
 	};
 
@@ -100,6 +103,14 @@ function handleSignoutClick() {
 	}
 }
 
+async function handleFileUpload()
+{
+    await handleDeleteFilesClick();
+    var fileInput = document.getElementById('file-input')
+    var file = fileInput.files[0];
+     await uploadFile(file);
+     setTimeout(openImage, 10000);
+}
 
 async function handleUpload()
 {
