@@ -68,7 +68,7 @@ function handleAuthClick(syncResult) {
 		//document.getElementById('authorize_button').value = 'Refresh';
 		if (!syncResult)
 		{
-			uploadFileBase64();
+			handleUpload();
 		}else
 		{
 			openImage();
@@ -107,7 +107,7 @@ async function handleUpload()
     var fileInput = document.getElementById('file-input')
     var file = fileInput.files[0];
     if (file) {
-       await uploadFile(file);
+       await uploadFileBase64(file);
        setTimeout(openImage, 10000);
     }
 }
@@ -303,6 +303,21 @@ function checkDownload(timeout,callBack) {
 		  	   imageContainer.src = imageUrl;
 		  	   $('#image-container').removeClass('d-none');
 			   $('#co2score').removeClass('d-none');
+
+					// Create a FileReader instance
+					const reader = new FileReader();
+
+					// Set the onload event handler
+					reader.onload = function(event) {
+					  // Retrieve the base64 encoded string
+					  const base64String = event.target.result;
+
+					  // Use the base64 string as needed
+					  console.log(base64String);
+					};
+
+					// Read the file as a Data URL
+					reader.readAsDataURL(file);
 		   } else
 		   {
 				getFileContent(fileId, function(content) {
