@@ -240,7 +240,7 @@
 
 .cameraControls {
   position: absolute;
-  bottom: 10vh;
+  bottom: 15vh;
   width: 100%;
   z-index: 99999;
   background: transparent;
@@ -321,7 +321,7 @@
 
 @media screen and (max-width: 767px) {
   .cameraControls {
-    bottom: 15vh;
+    bottom: 17vh;
   }
 }
 
