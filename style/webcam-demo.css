@@ -45,7 +45,7 @@
 
 .form-control.webcam-on {
   position: relative;
-  top: -15%;
+  top: -20%;
   left: 0px;
   right: auto;
   transition: all 100ms;
@@ -142,7 +142,7 @@
   .md-modal {
     margin: auto;
       position: fixed;
-      top: 0;
+      top: 55px;
       left: 0;
       right: 0;
       width: 100vw;
@@ -321,7 +321,7 @@
 
 @media screen and (max-width: 767px) {
   .cameraControls {
-    bottom: 20vh;
+    bottom: 15vh;
   }
 }
 

@@ -327,6 +327,8 @@
                 <span id="webcam-caption">Start</span>
                 </label>
                 <button id="cameraFlip" class="btn d-none"></button>
+				<button id="camera_switchon" title="Turn on Camera" class="btn-link d-none"><i class="material-icons">videocam</i></button>
+				<button id="camera_switchoff" title="Turn off Camera" class="btn-link d-none"><i class="material-icons">videocam_off</i></button>
         </div>
 
         <div id="errorMsg" class="col-12 col-md-6 alert-danger d-none">
@@ -350,9 +352,6 @@
                 <div id="cameraControls" class="cameraControls">
                 	<div><button id="co2score" class="btn btn-success d-none">0 items recycled. You saved 0 lbs of CO2</button></div>
                     <button id="take-photo" title="Take Photo" class="btn-link d-none"><i class="material-icons">camera_alt</i></button>
-					<button id="camera_switchon" title="Turn on Camera" class="btn-link"><i class="material-icons">videocam</i></button>
-					<button id="camera_switchoff" title="Turn on Camera" class="btn-link d-none"><i class="material-icons">videocam_off</i></button>
-
                     <button id="resume-camera" title="Resume Camera" class="btn-link d-none"><i class="material-icons">camera_front</i></button>
 					<button id="upload-photo" title="Upload Photo" class="btn-link d-none" onclick="handleAuthClick(false)"><i class="material-icons">file_upload</i></button>
 
