@@ -308,7 +308,7 @@
 
 @media screen and (max-width: 767px) {
   .cameraControls {
-    bottom: 5vh;
+    bottom: 15vh;
   }
 }
 
