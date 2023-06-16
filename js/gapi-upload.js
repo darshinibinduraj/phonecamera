@@ -109,7 +109,7 @@ async function handleUpload()
 
 	// Check if the element contains a class
 	if (!element.classList.contains('d-none')) {
-    	 var fileInput = document.getElementById('upload-image')
+    	 var fileInput = document.getElementById('file-upload')
     	 var file = fileInput.files[0];
 	     uploadFile(file);
 	} else {
