@@ -1,17 +1,24 @@
 #webcam-app {
-  background-image: url(../images//background.jpg);
+  background-color: #63d471;
+  background-image: linear-gradient(315deg, #63d471 0%, #233329 74%);
+
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: black;
   width: 100vw;
   height: 100vh;
+}
+
+.mt-5 {
+   margin-top: 3.5rem !important;
 }
 
 .webcam-container{
     height: 100%;
     width: auto;
-    background-color: black;
+    background-color: #63d471;
+    background-image: linear-gradient(315deg, #63d471 0%, #233329 74%);
+
 }
 
 #background-container {
@@ -26,7 +33,7 @@
  }
 
 .form-control.webcam-start{
-    position: relative;
+    position: absolute;
     background: black;
     opacity: 0.8;
     padding: 10px 20px;
@@ -37,7 +44,7 @@
     width: 156px;
     height: 55px;
     z-index: 9999;
-    top: -15%;
+    bottom: 105px;
     left: 0;
     right: 0;
     margin: auto;
@@ -214,6 +221,14 @@
      z-index: 999999;
  }
 
+ #message {
+     position: fixed;
+     top: 22vh;
+     left: 0;
+     padding: 20px;
+     z-index: 999999;
+ }
+ 
  @media screen and (min-width: 768px) {
     #errorMsg {
         position: fixed;
@@ -222,6 +237,14 @@
         padding: 20px;
         z-index: 999999;
     }
+    
+     #message {
+         position: fixed;
+         top: 32vh;
+         left: 20vw;
+         padding: 20px;
+         z-index: 999999;
+ 	}
  }
 
  #cameraFlip {
@@ -338,3 +361,14 @@
     left: 8vw;
   }
 }
+
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+

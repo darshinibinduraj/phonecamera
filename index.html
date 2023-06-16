@@ -206,7 +206,7 @@
 <!-- CO2 Score Board End -->
 
 
-	  <div id="monthlyscore" class="row mt-4 mb-2 d-none">
+	  <div id="monthlyscore" class="row mt-5 mb-2 d-none">
 
 		<div class="col-md-3 order-md-2 mb-1">
 		  <h4 class="d-flex justify-content-between align-items-center mb-3">
@@ -218,46 +218,19 @@
 				<h6 class="my-0">Recycle (lbs)</h6>
 				<small class="text-muted">Cans 89, Plastic 36, Glass 25, Paper 113 </small>
 			  </div>
-			  <span class="text-success" id="recycleresult">-263 lbs</span>
+			  <span class="text-success" id="recycleresult">-16.5 lbs</span>
 			</li>
-			<li class="list-group-item d-flex justify-content-between lh-condensed">
-			  <div>
-				<h6 class="my-0">Vehicle Emissions (lbs).</h6>
-				<small class="text-muted">Estimated at 19.6 lbs CO2/gallon</small>
-			  </div>
-			  <span class="text-danger" id="vehicleresult">1100 lbs</span>
-			</li>
-			<li class="list-group-item d-flex justify-content-between lh-condensed">
-			  <div>
-				<h6 class="my-0">Gas Emission (lbs)</h6>
-				<small class="text-muted">Estimated Emission Factor 119.58</small>
-			  </div>
-			  <span class="text-danger" id="gasresult">359 lbs</span>
-			</li>
-			<li class="list-group-item d-flex justify-content-between lh-condensed">
-			  <div>
-				<h6 class="my-0">Electric Emission (lbs)</h6>
-				<small class="text-muted">Estimated Emission Factor 613.2845</small>
-			  </div>
-			  <span class="text-danger" id="electricresult">184 lbs</span>
-			</li>
-			<li class="list-group-item d-flex justify-content-between bg-light">
-			  <div class="text-warning">
-				<h6 class="my-0">Total Emission Score</h6>
-				<small>Based on your entered data</small>
-			  </div>
-			  <span class="text-success" id="totalResult">1380</span>
-			</li>
+
 			<li class="list-group-item d-flex justify-content-between lh-condensed">
 			  <div>
 				<h6 class="my-0">Regional Average</h6>
 				<small class="text-muted">In your region</small>
 			  </div>
-			  <span class="text-muted">1642</span>
+			  <span class="text-muted">122 lbs</span>
 			</li>
 			<li class="list-group-item d-flex justify-content-between">
 			  <span>Difference</span>
-			  <span class="text-primary" id="diff">-262</span>
+			  <span class="text-primary" id="diff">-105.5 lbs</span>
 			</li>
 		  </ul>
 
@@ -272,46 +245,18 @@
 				<h6 class="my-0">Recycle (lbs)</h6>
 				<small class="text-muted">Cans 89, Plastic 36, Glass 25, Paper 113 </small>
 			  </div>
-			  <span class="text-success" id="recycleresult">-263 lbs</span>
-			</li>
-			<li class="list-group-item d-flex justify-content-between lh-condensed">
-			  <div>
-				<h6 class="my-0">Vehicle Emissions (lbs).</h6>
-				<small class="text-muted">Estimated at 19.6 lbs CO2/gallon</small>
-			  </div>
-			  <span class="text-danger" id="vehicleresult">1000 lbs</span>
-			</li>
-			<li class="list-group-item d-flex justify-content-between lh-condensed">
-			  <div>
-				<h6 class="my-0">Gas Emission (lbs)</h6>
-				<small class="text-muted">Estimated Emission Factor 119.58</small>
-			  </div>
-			  <span class="text-danger" id="gasresult">350 lbs</span>
-			</li>
-			<li class="list-group-item d-flex justify-content-between lh-condensed">
-			  <div>
-				<h6 class="my-0">Electric Emission (lbs)</h6>
-				<small class="text-muted">Estimated Emission Factor 613.2845</small>
-			  </div>
-			  <span class="text-danger" id="electricresult">180 lbs</span>
-			</li>
-			<li class="list-group-item d-flex justify-content-between bg-light">
-			  <div class="text-warning">
-				<h6 class="my-0">Total Emission Score</h6>
-				<small>Based on your entered data</small>
-			  </div>
-			  <span class="text-success" id="totalResult">1267</span>
+			  <span class="text-success" id="recycleresult">-16.5 lbs</span>
 			</li>
 			<li class="list-group-item d-flex justify-content-between lh-condensed">
 			  <div>
 				<h6 class="my-0">Regional Average</h6>
 				<small class="text-muted">In your region</small>
 			  </div>
-			  <span class="text-muted">1642</span>
+			  <span class="text-muted">-122 lbs</span>
 			</li>
 			<li class="list-group-item d-flex justify-content-between">
 			  <span>Difference</span>
-			  <span class="text-primary" id="diff">-375</span>
+			  <span class="text-primary" id="diff">-105.5 lbs</span>
 			</li>
 		  </ul>
 
@@ -324,11 +269,11 @@
                 <label class="form-switch">
                 <input type="checkbox" id="webcam-switch">
                 <i></i>
-                <span id="webcam-caption">Start</span>
+                <span id="webcam-caption">Try</span>
                 </label>
                 <button id="cameraFlip" class="btn d-none"></button>
-				<button id="camera_switchon" title="Turn on Camera" class="btn-link d-none"><i class="material-icons">videocam</i></button>
-				<button id="camera_switchoff" title="Turn off Camera" class="btn-link d-none"><i class="material-icons">videocam_off</i></button>
+				<!--<button id="camera_switchon" title="Turn on Camera" class="btn-link d-none"><i class="material-icons">videocam</i></button>
+				<button id="camera_switchoff" title="Turn off Camera" class="btn-link d-none"><i class="material-icons">videocam_off</i></button>-->
         </div>
 
         <div id="errorMsg" class="col-12 col-md-6 alert-danger d-none">
@@ -339,8 +284,14 @@
         <div class="md-modal md-effect-12">
             <div id="app-panel" class="app-panel md-content row p-0 m-0">
                 <div id="webcam-container" class="webcam-container col-12 d-none p-0 m-0">
-                	<input type="file" id="upload-image" class="d-none"
-                		style="position:relative;top:15vh;color:white" capture="environment" accept="image/*"
+					<div id="message" class="col-12 col-md-6 alert-success">
+						Take a Pictue or Upload an image of all the items you want to recyle.<br/>
+						We will calculate the CO2 in lbs saved from emission.
+					</div>
+	                <label id="upload-image" style="position:relative;top:60vh;color:white" for="file-upload" class="custom-file-upload">
+					    <i class="material-icons">camera_alt</i>
+					</label>
+                	<input type="file" class="d-none" id="file-upload" style="position:relative;top:15vh;color:white" capture="environment" accept="image/*"
                 		onchange="loadFile(event)"/>
                     <video id="webcam" autoplay playsinline width="640" height="480"></video>
                     <canvas id="canvas" class="d-none"></canvas>
@@ -351,7 +302,7 @@
                 </div>
                 <div id="cameraControls" class="cameraControls">
                 	<div><button id="co2score" class="btn btn-success d-none">0 items recycled. You saved 0 lbs of CO2</button></div>
-                    <button id="take-photo" title="Take Photo" class="btn-link d-none"><i class="material-icons">camera_alt</i></button>
+                    <!--<button id="take-photo" title="Take Photo" class="btn-link d-none"><i class="material-icons">camera_alt</i></button>-->
                     <button id="resume-camera" title="Resume Camera" class="btn-link d-none"><i class="material-icons">camera_front</i></button>
 					<button id="upload-photo" title="Upload Photo" class="btn-link d-none" onclick="handleAuthClick(false)"><i class="material-icons">file_upload</i></button>
 

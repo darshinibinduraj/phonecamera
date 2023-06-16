@@ -407,6 +407,7 @@ function signin() {
 	$('#monthlyscore').removeClass('d-none');
 	$('#scoreModal').addClass('d-none');
 	$('#navbarCollapse').removeClass('d-show');
+	$('#webcam-control').addClass('top_5vh');
 }
 
 function scoreboard() {

@@ -22,15 +22,15 @@ $('#cameraFlip').click(function() {
     webcam.start();
 });
 
-$('#camera_switchon').click(function() {
+/*$('#camera_switchon').click(function() {
     webcam.start();
     webcamStart();
-});
+});*/
 
-$('#camera_switchoff').click(function() {
+/*$('#camera_switchoff').click(function() {
     webcam.stop();
     webcamStop()
-});
+});*/
 
 $('#closeError').click(function() {
     $("#webcam-switch").prop('checked', false).change();
@@ -47,8 +47,8 @@ function cameraStarted(){
     $("#errorMsg").addClass("d-none");
     $('.flash').hide();
     $("#webcam-caption").html("Stop");
-    $("#webcam-control").removeClass("webcam-off");
-    $("#webcam-control").addClass("webcam-on");
+    //$("#webcam-control").removeClass("webcam-off");
+    //$("#webcam-control").addClass("webcam-on");
     $(".webcam-container").removeClass("d-none");
     if( webcam.webcamList.length > 1){
         $("#cameraFlip").removeClass('d-none');
@@ -56,36 +56,39 @@ function cameraStarted(){
     $("#wpfront-scroll-top-container").addClass("d-none");
     window.scrollTo(0, 0);
     $('body').css('overflow-y','hidden');
-    webcamStop();
+	$("#message").removeClass("d-none");
+	$("#upload-image").removeClass("d-none");
+    //webcamStop();
 }
 
 function cameraStopped(){
     $("#errorMsg").addClass("d-none");
     $("#wpfront-scroll-top-container").removeClass("d-none");
-    $("#webcam-control").removeClass("webcam-on");
-    $("#webcam-control").addClass("webcam-off");
+    //$("#webcam-control").removeClass("webcam-on");
+    //$("#webcam-control").addClass("webcam-off");
     $("#cameraFlip").addClass('d-none');
     $(".webcam-container").addClass("d-none");
     $("#webcam-caption").html("Start");
     $('.md-modal').removeClass('md-show');
 
-	$("#take-photo").addClass("d-none");
-	$("#camera_switchon").addClass("d-none");
-	$("#camera_switchoff").addClass("d-none");
+	$("#upload-image").addClass("d-none");
+	$("#message").addClass("d-none");
+	//$("#camera_switchon").addClass("d-none");
+	//$("#camera_switchoff").addClass("d-none");
 }
 
 function webcamStart() {
 	$("#take-photo").removeClass("d-none");
-	$("#camera_switchon").addClass("d-none");
-	$("#camera_switchoff").removeClass("d-none");
+	//$("#camera_switchon").addClass("d-none");
+	//$("#camera_switchoff").removeClass("d-none");
 	$("#upload-image").addClass("d-none");
 }
 
 function webcamStop() {
 	$("#take-photo").addClass("d-none");
-	$("#camera_switchon").removeClass("d-none");
+	//$("#camera_switchon").removeClass("d-none");
 	$("#upload-image").removeClass("d-none");
-	$("#camera_switchoff").addClass("d-none");
+	//$("#camera_switchoff").addClass("d-none");
 }
 
 
@@ -136,16 +139,18 @@ function afterTakePhoto(){
     $('#refresh').removeClass('d-none');
     $('#close').removeClass('d-none');
     $('#webcam-control').addClass('d-none');
-	  $("#camera_switchoff").addClass("d-none");
-	  $("#camera_switchon").addClass("d-none");
+	$("#message").addClass("d-none");
+	$("#upload-image").addClass("d-none");
+	  //$("#camera_switchoff").addClass("d-none");
+	  //$("#camera_switchon").addClass("d-none");
 }
 
 function chooseFile() {
 	  $('#canvas').addClass('d-none');
 	  $('#image-container-preview').removeClass('d-none');
 	  $('#webcam-control').addClass('d-none');
-	  $("#camera_switchoff").addClass("d-none");
-	  $("#camera_switchon").addClass("d-none");
+	  //$("#camera_switchoff").addClass("d-none");
+	  //$("#camera_switchon").addClass("d-none");
 }
 
 function removeCapture(){
@@ -162,15 +167,17 @@ function removeCapture(){
     $('#refresh').addClass('d-none');
     $('#close').addClass('d-none');
     $('#image-container-preview').addClass('d-none');
-    $("#camera_switchon").addClass("d-none");
-    $("#camera_switchoff").removeClass("d-none");
+    //$("#camera_switchon").addClass("d-none");
+    //$("#camera_switchoff").removeClass("d-none");
 }
 
 $("#resume-camera").click(function () {
-    webcam.stream()
+	removeCapture();
+	cameraStarted();
+   /* webcam.stream()
         .then(facingMode =>{
             removeCapture();
-        });
+        });*/
 });
 
 $("#exit-app").click(function () {
