@@ -452,8 +452,8 @@ function co2Calculator(jsonObject)
 
 	  var rKey = Object.keys(recycled).find(r => r.toLowerCase() === key.toLowerCase())
 	  var value = 200;
-	  if (rkey != "" && rKey != null)
-		 value = recycled[rkey];
+	  if (rKey != undefined && rKey != "" && rKey != null)
+		 value = recycled[rKey];
 
 	  // Add an integer to each value
 	  sum += (jsonObject[key] * value) * 2.2;
@@ -462,7 +462,7 @@ function co2Calculator(jsonObject)
 
 
 	const button = document.getElementById('co2score');
-	button.innerText = count + " items recycled." + " You Saved " + sum + " lbs of CO2";
+	button.innerText = count + " items recycled." + " You Saved " + Math.round(sum * 100)/100 + " lbs of CO2";
 }
 
 //https://www.epa.gov/warm/recycled-content-recon-tool
