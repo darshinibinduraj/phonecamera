@@ -435,7 +435,7 @@ function convertImageToBase64(fileId) {
   });
 }
 
-function co2Calculator(result)
+function co2Calculator(jsonObject)
 {
 	console.log('JSON object:', jsonObject);
 	var recycled = new Object();
@@ -459,7 +459,7 @@ function co2Calculator(result)
 	  sum += (jsonObject[key] * value) * 2.2;
 	  count += jsonObject[key];
 	});
-    
+
 
 	const button = document.getElementById('co2score');
 	button.innerText = count + " items recycled." + " You Saved " + sum + " lbs of CO2";
