@@ -451,7 +451,7 @@ function co2Calculator(jsonObject)
 	Object.keys(jsonObject).forEach(key => {
 
 	  var rKey = Object.keys(recycled).find(r => r.toLowerCase() === key.toLowerCase())
-	  var value = 200;
+	  var value = 0.200;
 	  if (rKey != undefined && rKey != "" && rKey != null)
 		 value = recycled[rKey];
 
