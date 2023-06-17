@@ -319,18 +319,8 @@ function checkDownload(timeout,callBack) {
 				getFileContent(fileId, function(content) {
 				try {
 					  var jsonObject = JSON.parse(content);
-					  console.log('JSON object:', jsonObject);
-						// Accumulate the sum of all values
-						let sum = 0;
-						let count = 0;
-						Object.keys(jsonObject).forEach(key => {
-						  // Add an integer to each value
-						  sum += jsonObject[key] * 3;
-						  count += jsonObject[key];
-						});
 
-						const button = document.getElementById('co2score');
-						button.innerText = count + " items recycled." + " You Saved " + sum + " lbs of CO2";
+						co2Calculator(jsonObject);
 					} catch (error) {
 					  console.error('Error parsing JSON:', error);
 					}
@@ -444,3 +434,52 @@ function convertImageToBase64(fileId) {
     });
   });
 }
+
+function co2Calculator(result)
+{
+	console.log('JSON object:', jsonObject);
+	var recycled = new Object();
+	recycled["Bottle"] = 0.822;
+	recycled["Aluminum"] = 0.988;
+	recycled["Plastic"] = 0.60;
+	recycled["Brush"] = 0.100;
+	recycled["Glass"] = 0.200;
+
+	// Accumulate the sum of all values
+	let sum = 0;
+	let count = 0;
+	Object.keys(jsonObject).forEach(key => {
+
+	  var rKey = Object.keys(recycled).find(r => r.toLowerCase() === key.toLowerCase())
+	  var value = 200;
+	  if (rkey != "" && rKey != null)
+		 value = recycled[rkey];
+
+	  // Add an integer to each value
+	  sum += (jsonObject[key] * value) * 2.2;
+	  count += jsonObject[key];
+	});
+    
+
+	const button = document.getElementById('co2score');
+	button.innerText = count + " items recycled." + " You Saved " + sum + " lbs of CO2";
+}
+
+//https://www.epa.gov/warm/recycled-content-recon-tool
+//1 Aluminum 0.04lbs - 98.8g CO2
+//1 glass 0.67lbs - 200g CO2
+//1 plastic bottle - 82.8gms for 500 milli
+//1 Aluminum foil sheet - 3000g
+// 1 brush - 100g
+
+/*  "Bottle": 12,
+    "Tube": 3,
+    "Lid": 1,
+    "Brush": 2,
+    "Foil": 2,
+    "Jar": 1,
+    "Can": 1,
+    "Mirror": 1,
+    "Cosmetic": 1,
+    "Box": 1,
+    "Cassette-&-tape": 1 */
