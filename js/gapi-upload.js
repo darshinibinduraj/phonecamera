@@ -1,6 +1,6 @@
 // TODO: Set the below credentials
-const CLIENT_ID = '483843549561-c4thk9hm4td736jj9icpqomcgll8fv8q.apps.googleusercontent.com';
-const API_KEY = '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';
+const CLIENT_ID = '1082167179284-01uub1efi2eadlke9ch7ann0pouoo3k4.apps.googleusercontent.com';
+const API_KEY = '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';
 
 // Discovery URL for APIs used by the quickstart
 const DISCOVERY_DOC = 'https://www.googleapis.com/discovery/v1/apis/drive/v3/rest';
@@ -132,7 +132,7 @@ async function uploadFileBase64() {
   const metadata = {
     name: fileName,
     mimeType: 'image/png',
-    parents:  ['1igHRt59wd1mzZq-0pyjFppRIQXh3dKQD']
+    parents:  ['1guqMw71nQgfMgY5KRD1o7CrlUD-0WGk2']
   };
 
   const fileData = base64Data.split(',')[1];
@@ -159,7 +159,7 @@ async function uploadFileBase64() {
     const fileMetadata = {
       name: fileName,
       mimeType: metadata.mimeType,
-      parents:  ['1igHRt59wd1mzZq-0pyjFppRIQXh3dKQD']
+      parents:  ['1guqMw71nQgfMgY5KRD1o7CrlUD-0WGk2']
     };
 
     const accessToken = gapi.auth.getToken().access_token;
@@ -204,7 +204,7 @@ async function uploadFile(file) {
 	var metadata = {
 	   name: file.name,
 	   mimeType: file.type,
-	   parents:  ['1igHRt59wd1mzZq-0pyjFppRIQXh3dKQD']
+	   parents:  ['1guqMw71nQgfMgY5KRD1o7CrlUD-0WGk2']
 	};
 
   const permissions = {
@@ -245,7 +245,7 @@ async function uploadFile(file) {
 }
 
 async function handleDeleteFilesClick() {
-  var folderId = '1qeZ2dHlRLAZfhjNZsnuyEIREh6W8hNMv';
+  var folderId = '1KF0z2k5zbAeunKMIyshJ5O_7baWychik';
 
   gapi.client.drive.files.list({
     q: "'" + folderId + "' in parents",
@@ -289,7 +289,7 @@ function openImage()
 
 function checkDownload(timeout,callBack) {
     var startTime = Date.now();
-    var folderId = '1qeZ2dHlRLAZfhjNZsnuyEIREh6W8hNMv';
+    var folderId = '1KF0z2k5zbAeunKMIyshJ5O_7baWychik';
 	function handleOpenImageClick() {
 	  var imageContainer = document.getElementById('image-container');
 	  gapi.client.drive.files.list({
@@ -389,6 +389,7 @@ function logout() {
 	$('#loginform').removeClass('d-none');
 	$('#monthlyscore').addClass('d-none');
 	$('#scoreModal').addClass('d-none');
+	$('#registerform').addClass('d-none');
 	$('#navbarCollapse').removeClass('d-show');
 }
 
